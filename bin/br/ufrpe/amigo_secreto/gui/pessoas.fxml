@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.amigo_secreto.gui.TelaPessoasController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnPessoas" layoutX="9.0" layoutY="41.0" mnemonicParsing="false" onAction="#abreTelaPessoas" prefHeight="25.0" prefWidth="82.0" text="Pessoas" />
+                  <Button fx:id="btnGrupos" layoutX="10.0" layoutY="75.0" mnemonicParsing="false" onAction="#abreTelaGrupos" prefHeight="25.0" prefWidth="81.0" text="Grupos" />
+                  <Button fx:id="btnPresentes" layoutX="11.0" layoutY="110.0" mnemonicParsing="false" onAction="#abreTelaPresentes" prefHeight="25.0" prefWidth="80.0" text="Presentes" />
+                  <Button fx:id="btnSorteio" layoutX="9.0" layoutY="146.0" mnemonicParsing="false" onAction="#abreTelaSorteio" prefHeight="25.0" prefWidth="82.0" text="Sorteio" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Cadastro de pessoas">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="5.0" layoutY="7.0" prefHeight="357.0" prefWidth="491.0">
+                           <children>
+                              <Label layoutX="51.0" layoutY="49.0" text="Nome Completo:" />
+                              <Label layoutX="102.0" layoutY="96.0" text="Apelido:" />
+                              <TextField fx:id="nomeCompleto" layoutX="151.0" layoutY="45.0" />
+                              <Label layoutX="106.0" layoutY="144.0" text="Senha:" />
+                              <TextField fx:id="apelido" layoutX="151.0" layoutY="92.0" />
+                              <Button fx:id="btnSalvar" layoutX="413.0" layoutY="311.0" mnemonicParsing="false" onAction="#cadastrarPessoas" prefHeight="25.0" prefWidth="64.0" text="Salvar" />
+                              <Button fx:id="btnCancelar" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="335.0" layoutY="311.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="25.0" prefWidth="69.0" text="Cancelar" />
+                              <PasswordField fx:id="senha" layoutX="152.0" layoutY="139.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Presentes da pessoa">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="7.0" layoutY="5.0" prefHeight="347.0" prefWidth="488.0">
+                           <children>
+                              <Label layoutX="82.0" layoutY="43.0" text="Pessoa:" />
+                              <Label layoutX="269.0" layoutY="103.0" text="Presentes da pessoa:" />
+                              <Label layoutX="54.0" layoutY="103.0" text="Todos os presentes:" />
+                              <ComboBox fx:id="lista" layoutX="132.0" layoutY="39.0" onAction="#pegarCombo" prefHeight="25.0" prefWidth="160.0" promptText="Selecione uma pessoa" />
+                              <Button fx:id="btnRemover" layoutX="198.0" layoutY="210.0" mnemonicParsing="false" onAction="#removerPresente" text="Del" />
+                              <Button fx:id="btnAdicionar" layoutX="196.0" layoutY="166.0" mnemonicParsing="false" onAction="#pegarComboSelecionado" text="Add" />
+                              <ListView fx:id="viewAllPresentes" layoutX="12.0" layoutY="131.0" prefHeight="159.0" prefWidth="178.0" />
+                              <ListView fx:id="viewPresentesPessoa" layoutX="243.0" layoutY="131.0" prefHeight="159.0" prefWidth="178.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
